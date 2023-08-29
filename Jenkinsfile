@@ -13,13 +13,13 @@ node{
     }
 
     stage('Run') {
-          img.withRun("--name run-$BUILD_ID -p 80:80") { c ->
+          img.withRun("--name run-$BUILD_ID -p 81:81") { c ->
             sh 'curl localhost'
           }
     }
 
     stage('Push') {
-          docker.withRegistry('https://registry.gitlab.com', 'reg1') {
+          docker.withRegistry('https://github.com/Bader-mandhouj/Docker-registry.git', 'reg1') {
               img.push 'latest'
               img.push()
           }
