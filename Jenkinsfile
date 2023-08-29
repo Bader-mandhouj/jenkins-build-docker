@@ -1,10 +1,10 @@
-node {
+node{
   def app
 
     stage('Clone') {
         checkout scm
     }
-    stage('Build') {
+    stage('Build image') {
         app = docker.build("badra/nginx")
     }
     stage('Run image') {
@@ -14,4 +14,4 @@ node {
     }
 
     }
-}                                                                            
+}                                                                                                                                                    
