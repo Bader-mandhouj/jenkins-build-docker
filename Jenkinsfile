@@ -1,11 +1,17 @@
 node {
+  def app
+
     stage('Clone') {
-        git 'https://github.com/priximmo/jenkins-helloworld.git'
+        checkout scm
     }
-     stage('Build') {
-         sh label: '', script: 'javac Main.java'
+    stage('Build') {
+        app = docker.build("badra/nginx")
     }
-     stage('Run') {
-          sh label: '', script: 'java Main'
+    stage('Run image') {
+        docker.image('badra/nginx').withRun('-p 81:81') { c ->
+        sh 'docker ps'
+        sh 'curl localhost'
     }
-} 
+
+    }
+}                                                                            
