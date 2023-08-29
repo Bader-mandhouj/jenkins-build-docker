@@ -1,3 +1,5 @@
 FROM nginx:latest
-RUN sed -i 's/Bader-mandhouj/g' /usr/share/nginx/html/index.html
-EXPOSE 81
+RUN sed -i 's/badra/g' /usr/share/nginx/html/index.html
+EXPOSE 81  
+
+
