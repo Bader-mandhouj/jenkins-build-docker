@@ -19,7 +19,7 @@ node{
     }
 
     stage('Push') {
-          docker.withRegistry('https://github.com/Bader-mandhouj/Docker-registry.git', 'reg1') {
+          docker.withRegistry('https://github.com/Bader-mandhouj/Docker-registry.git') {
               img.push 'latest'
               img.push()
           }
